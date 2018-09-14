@@ -141,12 +141,175 @@
 	
 	<table class="wheel-alignment-test-results-table">
 		<tr>
-			<th colspan=3 width=50%></th>
-			<th class="wheel-alignment-test-data">Before</th>
-			<th class="wheel-alignment-test-data">Target Data</th>
-			<th class="wheel-alignment-test-data">Actual</th>
+			<th colspan=4 width=50%></th>
+			<th class="wheel-alignment-test-data-header">Before</th>
+			<th width=20% class="wheel-alignment-test-data-header">Target Data</th>
+			<th class="wheel-alignment-test-data-header">Actual</th>
+		</tr>
+		<tr>
+			<td width=20% rowspan=7 class="wheel-alignment-header-1">Rear Axle</td>
+			<td rowspan=3 colspan=2 class="wheel-alignment-header-2">Camber</td>
+			<td class="wheel-alignment-header-3">left</td>
+			<td class="wheel-alignment-data"><span id="rear_axle_camber_left_before">123</span></td>
+			<td rowspan=2 class="wheel-alignment-data"><span id="rear_axle_camber_left_right_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_camber_left_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">right</td>
+			<td class="wheel-alignment-data"><span id="rear_axle_camber_right_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_camber_right_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">cross</td>
+			<td class="wheel-alignment-data"><span id="rear_axle_camber_cross_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_camber_cross_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_camber_cross_actual">123</span></td>
+		</tr>
+		<tr>
+			<td rowspan=3 colspan=2 class="wheel-alignment-header-2">Toe</td>
+			<td class="wheel-alignment-header-3">left</td>
+			<td class="wheel-alignment-data"><span id="rear_axle_toe_left_before">123</span></td>
+			<td rowspan=2 class="wheel-alignment-data"><span id="rear_axle_toe_left_right_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_toe_left_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">right</td>
+			<td class="wheel-alignment-data"><span id="rear_axle_toe_right_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_toe_right_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">total</td>
+			<td class="wheel-alignment-data"><span id="rear_axle_toe_total_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_toe_total_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_toe_total_actual">123</span></td>
+		</tr>
+		<tr>
+			<td colspan=2 class="wheel-alignment-header-2">Geometrical driving axis</td>
+			<td class="wheel-alignment-header-3"></td>
+			<td class="wheel-alignment-data"><span id="geometrical_driving_axis_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="geometrical_driving_axis_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="geometrical_driving_axis_actual">123</span></td>
 		</tr>
 		
+		<tr>
+			<td rowspan=19 class="wheel-alignment-header-1">Front Axle</td>
+			<td colspan=2 rowspan=3 class="wheel-alignment-header-2">Camber</td>
+			<td class="wheel-alignment-header-3">left</td>
+			<td class="wheel-alignment-data"><span id="front_axle_camber_left_before">123</span></td>
+			<td rowspan=2 class="wheel-alignment-data"><span id="front_axle_camber_left_right_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_camber_left_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">right</td>
+			<td class="wheel-alignment-data"><span id="front_axle_camber_right_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_camber_right_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">cross</td>
+			<td class="wheel-alignment-data"><span id="front_axle_camber_cross_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_camber_cross_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_camber_cross_actual">123</span></td>
+		</tr>
+		<tr>
+			<td colspan=2 rowspan=3 class="wheel-alignment-header-2">Caster</td>
+			<td class="wheel-alignment-header-3">left</td>
+			<td class="wheel-alignment-data"><span id="front_axle_caster_left_before">123</span></td>
+			<td rowspan=2 class="wheel-alignment-data"><span id="front_axle_caster_left_right_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_caster_left_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">right</td>
+			<td class="wheel-alignment-data"><span id="front_axle_caster_right_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_caster_right_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">cross</td>
+			<td class="wheel-alignment-data"><span id="front_axle_caster_cross_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_caster_cross_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_caster_cross_actual">123</span></td>
+		</tr>
+		<tr>
+			<td colspan=2 rowspan=3 class="wheel-alignment-header-2">SAI</td>
+			<td class="wheel-alignment-header-3">left</td>
+			<td class="wheel-alignment-data"><span id="front_axle_sai_left_before">123</span></td>
+			<td rowspan=2 class="wheel-alignment-data"><span id="front_axle_sai_left_right_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_sai_left_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">right</td>
+			<td class="wheel-alignment-data"><span id="front_axle_sai_right_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_sai_right_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">cross</td>
+			<td class="wheel-alignment-data"><span id="front_axle_sai_cross_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_sai_cross_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_sai_cross_actual">123</span></td>
+		</tr>
+		<tr>
+			<td colspan=2 rowspan=2 class="wheel-alignment-header-2">Track differential angle</td>
+			<td class="wheel-alignment-header-3">left</td>
+			<td class="wheel-alignment-data"><span id="front_axle_track_differential_angle_left_before">123</span></td>
+			<td rowspan=2 class="wheel-alignment-data"><span id="front_axle_track_differential_angle_left_right_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_track_differential_angle_left_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">right</td>
+			<td class="wheel-alignment-data"><span id="front_axle_track_differential_angle_right_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_track_differential_angle_right_actual">123</span></td>
+		</tr>
+		<tr>
+			<td colspan=2 rowspan=3 class="wheel-alignment-header-2">Toe</td>
+			<td class="wheel-alignment-header-3">left</td>
+			<td class="wheel-alignment-data"><span id="front_axle_toe_left_before">123</span></td>
+			<td rowspan=2 class="wheel-alignment-data"><span id="front_axle_toe_left_right_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_toe_left_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">right</td>
+			<td class="wheel-alignment-data"><span id="front_axle_toe_right_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_toe_right_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">total</td>
+			<td class="wheel-alignment-data"><span id="front_axle_toe_total_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_toe_total_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_toe_total_actual">123</span></td>
+		</tr>
+		<tr>
+			<td colspan=2 class="wheel-alignment-header-2">Setback</td>
+			<td class="wheel-alignment-header-3"></td>
+			<td class="wheel-alignment-data"><span id="front_axle_setback_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_setback_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_setback_actual">123</span></td>
+		</tr>
+		<tr>
+			<td rowspan=4 class="wheel-alignment-header-2">Max steering lock</td>
+			<td rowspan=2 class="wheel-alignment-header-2">left steer</td>
+			<td class="wheel-alignment-header-3">left</td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_left_steer_left_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_left_steer_left_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_left_steer_left_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">right</td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_left_steer_right_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_left_steer_right_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_left_steer_right_actual">123</span></td>
+		</tr>
+		<tr>
+			<td rowspan=2 class="wheel-alignment-header-2">right steer</td>
+			<td class="wheel-alignment-header-3">left</td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_right_steer_left_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_right_steer_left_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_right_steer_left_actual">123</span></td>
+		</tr>
+		<tr>
+			<td class="wheel-alignment-header-3">right</td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_right_steer_right_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_right_steer_right_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_right_steer_right_actual">123</span></td>
+		</tr>
 	</table>
 	
 	<div class="medium-spacer"></div>

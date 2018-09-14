@@ -85,7 +85,40 @@ body {
 	padding: 3px;
 }
 
-.wheel-alignment-test-data {
+.wheel-alignment-test-data-header {
 	text-align: center;
 	border: 1px solid;
+}
+
+.wheel-alignment-header-1 {
+	text-align: center;
+	border-top-style: solid;
+	border-top-width: 1px;
+    border-bottom-style: solid;
+	border-bottom-width: 1px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.wheel-alignment-header-2 {
+	text-align: left;
+	border-top-style: solid;
+	border-top-width: 1px;
+    border-bottom-style: solid;
+	border-bottom-width: 1px;
+	font-weight: bold;
+}
+
+.wheel-alignment-header-3 {
+	text-align: left;
+	border-top-style: solid;
+	border-top-width: 1px;
+    border-bottom-style: solid;
+	border-bottom-width: 1px;
+	font-weight: bold;
+}
+
+.wheel-alignment-data {
+	border: 1px solid;
+	text-align: center;
 }
