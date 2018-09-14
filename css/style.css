@@ -1,0 +1,91 @@
+/* Keep your CSS in here */
+
+body {
+    padding-top: 54px;
+}
+
+.address-bar {
+	width: 100%;
+	text-align: center;
+	font-size: 14px;
+}
+
+.header-table-left-column {
+	width: 65%;
+	font-weight: bold;
+}
+
+.header-table-right-column {
+	font-weight: bold;
+}
+
+.header-table-data {
+	font-weight: normal;
+}
+
+.header-table-data-bold {
+	font-weight: bold;
+}
+
+.big-spacer {
+	padding: 60px;
+}
+
+.medium-spacer {
+	padding: 20px;
+}
+
+.small-spacer {
+	padding: 5px;
+}
+
+.header-table {
+	width: 100%;
+}
+
+.invoice-table {
+	width: 100%;
+	border: 1px solid;
+}
+
+.invoice-totals-table {
+	width: 30%;
+	float: right;
+	border: 2px solid;
+}
+
+.wheel-alignment-test-results-table {
+	width: 100%;
+	
+}
+
+.terms-and-conditions {
+	font-size: 12px;
+}
+
+.invoice-table-data {
+	font-weight: normal;
+}
+
+.invoice-table-item-description {
+	width: 70%;
+	border-bottom: 1px solid;
+	padding:7px;
+}
+
+.invoice-table-number {
+	text-align: right;
+	border-bottom: 1px solid;
+	padding:7px;
+}
+
+.invoice-totals-table-data {
+	text-align: right;
+	font-weight: bold;
+	padding: 3px;
+}
+
+.wheel-alignment-test-data {
+	text-align: center;
+	border: 1px solid;
+}
