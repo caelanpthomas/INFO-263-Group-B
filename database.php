@@ -40,6 +40,11 @@ function get_invoice_by_id($id, &$error) {
 	}
 	
 	$conn->close();
+	/*if the number of rows returned is not one
+	adds on error string*/
+	if ($result->num_rows !=1) {
+		$error .= "No matching IDs";
+	}
 	
 	// Initialize array variable
 	$return_array = array();
@@ -75,7 +80,7 @@ function sanitize_input($input, $conn)
 }
 
 $error = "";
-$return_value = get_invoice_by_id("B742632", $error);
+$return_value = get_invoice_by_id("R005374", $error);
 echo $error;
 echo $return_value;
  ?>
