@@ -1,0 +1,4 @@
+9/21/2018:
+Caelan and Eleazar wrote code for the the function that returns an invoice from the database with the matching ID, if it exists.
+Wrote code for joining ntables for database and checking GET request (input validation)
+Wrote code for Target value function.
