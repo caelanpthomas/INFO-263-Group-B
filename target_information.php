@@ -7,7 +7,7 @@
  *
  * @return JSON invoices	Returns a json object containing the invoice, or False if no match.
  */
-function get_invoice_by_id($id, &$error) {
+function get_target_values(&$error) {
 	
 	// IMPORTANT
 	// FOR TESTING PURPOSES ONLY.
@@ -27,15 +27,7 @@ function get_invoice_by_id($id, &$error) {
 	}
 	
 	// Preparing and executing the SQL statement
-	$clean_id = sanitize_input($id, $conn);
-	$query = "SELECT * FROM invoice 
-			
-			JOIN owner ON invoice.customer_id = owner.owner_id 
-			JOIN vehicle ON vehicle.owner_id = owner.owner_id
-			JOIN inspection ON inspection.vehicle_id = vehicle.vehicle_id
-			JOIN branch ON branch.branch_id = inspection.branch_id
-	
-			WHERE invoice_id='$clean_id'";
+	$query = "SELECT * FROM targetvalue";
 	
 	// Execute the query
 	$result = $conn->query($query);
@@ -61,44 +53,15 @@ function get_invoice_by_id($id, &$error) {
 	
 	// Return array in JSON format
 	return json_encode($return_array);
-}
-
-
-/**
- * Sanitizes an input string.
- *
- * Check to see if magic quotes are being used, if they are strip slashes from the input string.
- * Use the real_escape_string function of the database to escape the input string.
- * prevent XSS by calling htmlentities function on the input string.
- * Return the sanitized string.
- *
- * @param string $input The string to sanitize.
- * @param mysqli $conn A connection to a mysql database.
- *
- * @return a sanitized string.
- */
-function sanitize_input($input, $conn)
-{
-    if (get_magic_quotes_gpc()) {
-        $input = stripslashes($input);
-    }
-    $input = $conn->real_escape_string($input);
-    return htmlentities($input);
-}
-
-//checks if GET request is invalid
+}	
+	//checks if GET request is invalid
 function handle_get_request() {
 	if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 		header("HTTP/1.1 405 Method Not Allowed");
 		return;
 }
-	$id = isset($_GET['id']) ? $_GET['id'] : False;
-	if (!$id) {
-		header("HTTP/1.1 400 Bad Request");
-		return;
-	}
 	$error = "";
-	$json = get_invoice_by_id($id, $error);
+	$json = get_target_values($error);
 	if ($error != "") {
 		header ("HTTP/1.1 501 Internal Server Error");
 		echo $error;
