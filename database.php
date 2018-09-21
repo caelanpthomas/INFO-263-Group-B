@@ -79,8 +79,27 @@ function sanitize_input($input, $conn)
     return htmlentities($input);
 }
 
-$error = "";
-$return_value = get_invoice_by_id("R005374", $error);
-echo $error;
-echo $return_value;
+//checks if GET request is invalid
+function handle_get_request() {
+	if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+		header("HTTP/1.1 405 Method Not Allowed");
+		return;
+}
+	$id = isset($_GET['id']) ? $_GET['id'] : False;
+	if (!$id) {
+		header("HTTP/1.1 400 Bad Request");
+		return;
+	}
+	$error = "";
+	$json = get_invoice_by_id($id, $error);
+	if ($error != "") {
+		header ("HTTP/1.1 501 Internal Server Error");
+		echo $error;
+		return;
+	}
+	//successful database read, return the data with normal header 200 OK
+	echo $json;
+}
+
+handle_get_request();
  ?>
