@@ -23,6 +23,12 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 		</div>
+		<div class="search-container">
+			<form action="/action_page.php">
+				<input type="text" placeholder="Search..." name="search">
+				<button type="submit">Submit</i></button>
+			</form>
+		</div>
 	</nav>
 	<!-- Page content -->
  <div class="container">
