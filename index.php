@@ -67,19 +67,20 @@
 		</tr>
 		<tr>
 			<td class="header-table-left-column"><span id="customer_name" class="header-table-data-bold">123456789</span></td>
-			<td class="header-table-right-column">Model: <span id="car_model" class="header-table-data">123456789</span></td>
+			<td class="header-table-right-column">Make: <span id="vehicle_make" class="header-table-data">123456789</span></td>
 		</tr>
 		<tr>
 			<td class="header-table-left-column">Phone: <span id="customer_phone" class="header-table-data">123456789</span></td>
-			<td class="header-table-right-column">Reg No.: <span id="reg_no" class="header-table-data">123456789</span></td>
+			<td class="header-table-right-column">Model: <span id="vehicle_model" class="header-table-data">123456789</span></td>
 		</tr>
 		<tr>
 			<td class="header-table-left-column">Email: <span id="customer_email" class="header-table-data">123456789</span></td>
-			<td class="header-table-right-column">Chassis: <span id="salesperson" class="header-table-data">123456789</span></td>
+			<td class="header-table-right-column">Reg No.: <span id="license_plate" class="header-table-data">123456789</span></td>
+			
 		</tr>
 		<tr>
 			<td class="header-table-left-column"></td>
-			<td class="header-table-right-column">VIN: <span id="vin" class="header-table-data">123456789</span></td>
+			<td class="header-table-right-column">Chassis: <span id="vehicle_chassis" class="header-table-data">123456789</span></td>
 		</tr>
 		<tr>
 			<td class="header-table-left-column"></td>
@@ -91,16 +92,18 @@
 		</tr>
 		<tr>
 			<td class="header-table-left-column"></td>
-			<td class="header-table-right-column">License Plate: <span id="license_plate" class="header-table-data">123456789</span></td>
-		</tr>
-		<tr>
-			<td class="header-table-left-column"></td>
 			<td class="header-table-right-column">Odometer Reading: <span id="odometer_reading" class="header-table-data">123456789</span></td>
 		</tr>
 		<tr>
 			<td class="header-table-left-column"></td>
 			<td class="header-table-right-column">First Reg. Date: <span id="first_reg_date" class="header-table-data">123456789</span></td>
 		</tr>
+		<tr>
+			<td class="header-table-left-column"></td>
+			<td class="header-table-right-column">VIN: <span id="vin" class="header-table-data">123456789</span></td>
+		</tr>
+		
+			
 	</table>
 	 
 	<div class="medium-spacer"></div>
@@ -143,6 +146,10 @@
 	 
 	<div class="terms-and-conditions">Goods are sold as per "Conditions of Sale" in our Credit Application. Returns limited to a maximum of thirty days. If TyreTown agrees that tyres can be returned, Fitting , Balancing , Tyre Disposal and freight costs incurred will be deducted from the credit. Tyre returns and claims must be returned promptly. Return freight is the client's responsibility. E&OE. In addition to the above arestocking charge will apply. Competition (Racing) and Rally tyres carry NO warranty.</div>
  
+	<div class="medium-spacer"></div>
+	
+	<div class="header-table-data-bold">Inspection Date/Time: <span id="inspection_date_time" class="header-table-data">Testing123</span></div>
+	
 	<div class="medium-spacer"></div>
 	
 	<table class="wheel-alignment-test-results-table">
@@ -192,9 +199,9 @@
 		<tr>
 			<td colspan=2 class="wheel-alignment-header-2">Geometrical driving axis</td>
 			<td class="wheel-alignment-header-3"></td>
-			<td class="wheel-alignment-data"><span id="geometrical_driving_axis_before">123</span></td>
-			<td class="wheel-alignment-data"><span id="geometrical_driving_axis_target">123</span></td>
-			<td class="wheel-alignment-data"><span id="geometrical_driving_axis_actual">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_geometrical_driving_axis_before">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_geometrical_driving_axis_target">123</span></td>
+			<td class="wheel-alignment-data"><span id="rear_axle_geometrical_driving_axis_actual">123</span></td>
 		</tr>
 		
 		<tr>

@@ -5,7 +5,7 @@
  *
  * @param string $id 		The id of the invoice to fetch.
  *
- * @return JSON invoices	Returns a json object containing the invoice, or False if no match.
+ * @return JSON invoice	Returns a json object containing the invoice, or False if no match.
  */
 function get_invoice_by_id($id, &$error) {
 	
@@ -47,24 +47,75 @@ function get_invoice_by_id($id, &$error) {
 	}
 	
 	$conn->close();
-	/*if the number of rows returned is not one
-	adds on error string*/
+	// Only 1 row should ever be returned. If this is not the case, there is an error
 	if ($result->num_rows !=1) {
 		$error .= "No matching IDs";
 	}
 	
 	// Initialize array variable
-	$return_array = array();
+	$invoice = array();
 	while ($row = $result->fetch_assoc()) {
-		$return_array[] = $row;
+		$invoice[] = $row;
 	}
 	
 	// Return array in JSON format
-	return json_encode($return_array);
+	return json_encode($invoice);
+}
+
+/*
+ * Returns a list of invoice IDs that match the search term passed
+ *
+ * @param string $term			The search term to use.
+ *
+ * @return JSON invoice_ids		Returns a json object containing the matching invoice ids.
+ */
+function search_invoice_id($term, &$error) {
+	// IMPORTANT
+	// FOR TESTING PURPOSES ONLY.
+	$hostname = "localhost";
+	$username = "root";
+	$password = "";
+	$database = "assignmentdb";
+	//
+	
+	// Creating the connection to the MySQL database
+	$conn = new mysqli($hostname, $username, $password, $database);
+
+	// Check if there is an error with the connection.
+	if ($conn->connect_error){
+		$error = $conn->connect_error;
+		return False;
+	}
+	
+	// Preparing and executing the SQL statement
+	$clean_id = sanitize_input($term, $conn);
+	$query = "SELECT invoice_id FROM invoice WHERE invoice_id LIKE '%$term%'";
+	
+	// Execute the query
+	$result = $conn->query($query);
+	
+	// Check for errors during execution
+	if (!$result) {
+		$error = $conn->error;
+		return False;
+	}
+	
+	$conn->close();
+	
+	// Initialize array variable
+	$invoice_ids = array();
+	while ($row = $result->fetch_assoc()) {
+		$invoice_ids[] = $row;
+	}
+
+	
+	// Return array in JSON format
+	return json_encode($invoice_ids);
 }
 
 
-/**
+
+/*
  * Sanitizes an input string.
  *
  * Check to see if magic quotes are being used, if they are strip slashes from the input string.
@@ -86,26 +137,61 @@ function sanitize_input($input, $conn)
     return htmlentities($input);
 }
 
-//checks if GET request is invalid
+
+// Checks if GET request is invalid
 function handle_get_request() {
 	if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 		header("HTTP/1.1 405 Method Not Allowed");
 		return;
-}
+	}
+	
+	// Retreiving GET variables
+	$method = isset($_GET['method']) ? $_GET['method'] : False;
 	$id = isset($_GET['id']) ? $_GET['id'] : False;
-	if (!$id) {
+	$search_term = isset($_GET['search_term']) ? $_GET['search_term'] : False;
+	
+	// If method is "retreive_invoice", use the ID passed to retreive the corresponding invoice
+	if ($method == "retreive_invoice") {
+		if (!$id) {
+			header("HTTP/1.1 400 Bad Request");
+			return;
+		}
+		
+		$error = "";
+		$json = get_invoice_by_id($id, $error);
+		if ($error != "") {
+			header ("HTTP/1.1 501 Internal Server Error");
+			echo $error;
+			return;
+		}
+		
+		// If we make it to here, database read successful, return the data with normal header 200 OK
+		echo $json;
+		
+	} else if ($method == "search") {
+		// If method is "search", use the search term passed to return a list of matching invoice IDs
+		if (!$search_term) {
+			header("HTTP/1.1 400 Bad Request");
+			return;
+		}
+		
+		$error = "";
+		$json = search_invoice_id($search_term, $error);
+		if ($error != "") {
+			header ("HTTP/1.1 501 Internal Server Error");
+			echo $error;
+			return;
+		}
+		
+		// If we make it to here, database read successful, return the data with normal header 200 OK
+		echo $json;
+	} else {
+		// We have an invalid method.
 		header("HTTP/1.1 400 Bad Request");
 		return;
 	}
-	$error = "";
-	$json = get_invoice_by_id($id, $error);
-	if ($error != "") {
-		header ("HTTP/1.1 501 Internal Server Error");
-		echo $error;
-		return;
-	}
-	//successful database read, return the data with normal header 200 OK
-	echo $json;
+	
+	
 }
 
 handle_get_request();
