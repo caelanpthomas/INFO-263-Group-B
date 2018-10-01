@@ -46,6 +46,12 @@ $(document).ready(function() {
  * response is returned from the server.
  */
 function fetch_invoice(invoice_id) {
+	
+	// First cleaning up the dropdown: 
+	$("#searchDropdown").html("");	
+	$("#searchDropdown").hide();
+	$("#search_term").val("");
+				
 	$.ajax({url: "database.php?method=retreive_invoice&id=" + invoice_id, success: function(result){
 		
 		// Parsing the JSON returned from the server so we can access the data
@@ -135,7 +141,7 @@ function fetch_invoice(invoice_id) {
 		calculate_totals(invoice_information.unit_price, invoice_information.quantity);
 		
 	}, error: function(xhr, status, error){
-		console.log("An error occured while fetching the invoice data for invoice ID " + invoice_id + "\n" + error);
+		console.log("An error occured while fetching the invoice data for invoice ID " + invoice_id + "\n" + xhr);
 	}});
 }
 
@@ -158,13 +164,41 @@ function calculate_totals(unit_price, quantity) {
 	$("#total").html(total);
 }
 
-fetch_invoice("R005374");
-
-
 /* Sends an AJAX request to the server which returns a list
  * of invoice numbers which match the search term.
  */
-function search_invoice_part_or_all(search_term) {
+function search_invoice(search_term) {
+	// First collect the search term from the input box
 	
+	// If search term is empty then make sure that drop down list is removed:
+	if (search_term == "") {
+		// Hide the dropdown
+		$("#searchDropdown").hide();
+	} else  {
 	
+		$.ajax({url: "database.php?method=search&search_term=" + search_term, success: function(result){
+			var inner_html = "";
+			var terms = JSON.parse(result);
+		
+			// Add a dropdown item for each of the returned results
+			for (var i = 0; i < terms.length; i++) {
+				inner_html = inner_html + "<div class='dropdown-item' onclick='fetch_invoice(\"" + terms[i].invoice_id + "\")'>" + terms[i].invoice_id + "</div>";
+			}
+			
+			// Set the html of the dropdown, and show it on the page
+			$("#searchDropdown").html(inner_html);
+			$("#searchDropdown").show();
+		}, error: function(xhr, status, error){
+		console.log("An error occured while fetching the invoice data for invoice ID " + invoice_id + "\n" + error);
+		}});
+	}
+}
+
+// Hiding the drop down box when you click out of it
+window.onclick = function(event) {
+	if (event.target.matches('#search_term')) {
+		$("#searchDropdown").show();
+	} else {
+		$("#searchDropdown").hide();
+	}
 }

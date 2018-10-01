@@ -30,10 +30,10 @@ function get_invoice_by_id($id, &$error) {
 	$clean_id = sanitize_input($id, $conn);
 	$query = "SELECT * FROM invoice 
 			
-			JOIN owner ON invoice.customer_id = owner.owner_id 
-			JOIN vehicle ON vehicle.owner_id = owner.owner_id
-			JOIN inspection ON inspection.vehicle_id = vehicle.vehicle_id
-			JOIN branch ON branch.branch_id = inspection.branch_id
+			LEFT JOIN owner ON invoice.customer_id = owner.owner_id 
+			LEFT JOIN vehicle ON vehicle.owner_id = owner.owner_id
+			LEFT JOIN inspection ON inspection.vehicle_id = vehicle.vehicle_id
+			LEFT JOIN branch ON branch.branch_id = inspection.branch_id
 	
 			WHERE invoice_id='$clean_id'";
 	
