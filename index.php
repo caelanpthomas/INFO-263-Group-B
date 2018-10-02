@@ -25,7 +25,7 @@
 		</div>
 		<div class="search-container">
 			<input id="search_term" type="text" placeholder="Enter invoice ID" oninput="search_invoice(this.value)"></input>
-			<div id="searchDropdown" class="dropdown-content"></div>
+			<div id="searchDropdown" class="dropdown-content"> //function goes here </div>
 		</div>
 	</nav>
 	<!-- Page content -->
