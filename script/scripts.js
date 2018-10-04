@@ -36,7 +36,7 @@ $(document).ready(function() {
 		$("#front_axle_max_steering_lock_right_steer_right_target").html(target_information.front_axle_max_steering_lock_right_steer_right_target);
 		
 	}, error: function(xhr, status, error){
-		console.log("An error occured while fetching the target wheel alignment data");
+		console.log("An error occurred while fetching the target wheel alignment data");
 	}});
 });
 
@@ -172,24 +172,30 @@ function search_invoice(search_term) {
 	
 	// If search term is empty then make sure that drop down list is removed:
 	if (search_term == "") {
-		// Hide the dropdown
+		// Hide the dropdown as there is no search term.
 		$("#searchDropdown").hide();
 	} else  {
-	
+		// Query the database with the search term, and add the results to the dropdown list.
 		$.ajax({url: "database.php?method=search&search_term=" + search_term, success: function(result){
 			var inner_html = "";
 			var terms = JSON.parse(result);
 		
-			// Add a dropdown item for each of the returned results
-			for (var i = 0; i < terms.length; i++) {
-				inner_html = inner_html + "<div class='dropdown-item' onclick='fetch_invoice(\"" + terms[i].invoice_id + "\")'>" + terms[i].invoice_id + "</div>";
+			// First check if any results have been returned. 
+			if (terms.length == 0) {
+				// There are no results. Add a dropdown item which is not clickable
+				inner_html = inner_html + "<div class='dropdown-message'>No results returned</div>";
+			} else {
+				// Add a dropdown item for each of the returned results
+				for (var i = 0; i < terms.length; i++) {
+					inner_html = inner_html + "<div class='dropdown-item' onclick='fetch_invoice(\"" + terms[i].invoice_id + "\")'>" + terms[i].invoice_id + "</div>";
+				}
 			}
 			
 			// Set the html of the dropdown, and show it on the page
 			$("#searchDropdown").html(inner_html);
 			$("#searchDropdown").show();
 		}, error: function(xhr, status, error){
-		console.log("An error occured while fetching the invoice data for invoice ID " + invoice_id + "\n" + error);
+		console.log("An error occurred while fetching the invoice data for invoice ID " + invoice_id + "\n" + error);
 		}});
 	}
 }
