@@ -166,7 +166,7 @@
  
 	<div class="medium-spacer"></div>
 	
-	<div class="header-table-data-bold">Inspection Date/Time: <span id="inspection_date_time" class="header-table-data">Testing</span></div>
+	<div class="header-table-data-bold">Inspection Date/Time: <span id="inspection_date_time" class="header-table-data"></span></div>
 	
 	<div class="medium-spacer"></div>
 	<div class="table-responsive">
