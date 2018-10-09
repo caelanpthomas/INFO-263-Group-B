@@ -147,7 +147,6 @@ function fetch_invoice(invoice_id) {
 
 /* Calculate the subtotal, GST, and total cost, and places the data into the correct spans */
 function calculate_totals(unit_price, quantity) {
-	
 	var subtotal = unit_price * quantity;
 	var gst = subtotal * GST_RATE;
 	var total = subtotal + gst;
@@ -174,7 +173,7 @@ function search_invoice(search_term) {
 	if (search_term == "") {
 		// Hide the dropdown as there is no search term.
 		$("#searchDropdown").hide();
-	} else  {
+	} else {
 		// Query the database with the search term, and add the results to the dropdown list.
 		$.ajax({url: "database.php?method=search&search_term=" + search_term, success: function(result){
 			var inner_html = "";

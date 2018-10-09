@@ -58,6 +58,15 @@ function get_invoice_by_id($id, &$error) {
 		$invoice[] = $row;
 	}
 	
+	// Changing NULL values to a hyphen '-' for better display on the webpage
+	function update_null_to_hyphen(&$item, $key) {
+		if ($item == NULL) {
+			$item = "-";
+		}
+	}
+	array_walk($invoice[0], 'update_null_to_hyphen');
+	
+	
 	// Return array in JSON format
 	return json_encode($invoice);
 }
@@ -107,7 +116,6 @@ function search_invoice_id($term, &$error) {
 	while ($row = $result->fetch_assoc()) {
 		$invoice_ids[] = $row;
 	}
-
 	
 	// Return array in JSON format
 	return json_encode($invoice_ids);

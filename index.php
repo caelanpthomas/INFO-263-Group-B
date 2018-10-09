@@ -178,7 +178,7 @@
 				<th class="wheel-alignment-test-data-header">Actual</th>
 			</tr>
 			<tr>
-				<td width=20% rowspan=7 class="wheel-alignment-header-1" width="30px">Rear&nbsp;Axle</td>
+				<td rowspan=7 class="wheel-alignment-header-1">Rear&nbsp;Axle</td>
 				<td rowspan=3 colspan=2 class="wheel-alignment-header-2">Camber</td>
 				<td class="wheel-alignment-header-3">left</td>
 				<td class="wheel-alignment-data"><span id="rear_axle_camber_left_before"></span></td>
@@ -223,7 +223,7 @@
 			</tr>
 			
 			<tr>
-				<td rowspan=19 class="wheel-alignment-header-1" width="30px">Front&nbsp;Axle</td>
+				<td rowspan=19 class="wheel-alignment-header-1">Front&nbsp;Axle</td>
 				<td colspan=2 rowspan=3 class="wheel-alignment-header-2">Camber</td>
 				<td class="wheel-alignment-header-3">left</td>
 				<td class="wheel-alignment-data"><span id="front_axle_camber_left_before"></span></td>
@@ -315,7 +315,7 @@
 				<td class="wheel-alignment-data"><span id="front_axle_setback_actual"></span></td>
 			</tr>
 			<tr>
-				<td rowspan=4 class="wheel-alignment-header-2">Max steering lock</td>
+				<td rowspan=4 class="wheel-alignment-header-2">Max steer lock</td>
 				<td rowspan=2 class="wheel-alignment-header-2">left steer</td>
 				<td class="wheel-alignment-header-3">left</td>
 				<td class="wheel-alignment-data"><span id="front_axle_max_steering_lock_left_steer_left_before"></span></td>

@@ -51,6 +51,14 @@ function get_target_values(&$error) {
 		$return_array[] = $row;
 	}
 	
+	// Changing NULL values to a hyphen '-' for better display on the webpage
+	function update_null_to_hyphen(&$item, $key) {
+		if ($item == NULL) {
+			$item = "-";
+		}
+	}
+	array_walk($return_array[0], 'update_null_to_hyphen');
+	
 	// Return array in JSON format
 	return json_encode($return_array);
 }	
