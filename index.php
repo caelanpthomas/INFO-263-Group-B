@@ -19,12 +19,10 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="#">Tyre Town</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+
 		</div>
 		<div class="search-container">
-			<input id="search_term" type="text" placeholder="Enter invoice ID..." oninput="search_invoice(this.value)"></input>
+			<input id="search_term" class="form-control form-control-lg form-control-borderless" type="text" placeholder="Enter invoice ID..." oninput="search_invoice(this.value)"></input>
 			<div id="searchDropdown" class="dropdown-content"></div>
 		</div>
 	</nav>
