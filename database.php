@@ -1,5 +1,8 @@
 <?php
 
+// Getting database config information
+require_once("/config/config.php");
+
 /**
  * Returns an invoice from the database with the matching ID, if it exists.
  *
@@ -9,16 +12,8 @@
  */
 function get_invoice_by_id($id, &$error) {
 	
-	// IMPORTANT
-	// FOR TESTING PURPOSES ONLY.
-	$hostname = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "assignmentdb";
-	//
-	
 	// Creating the connection to the MySQL database
-	$conn = new mysqli($hostname, $username, $password, $database);
+	$conn = new mysqli($serverName, $username, $password, $dbName, $port);
 
 	// Check if there is an error with the connection.
 	if ($conn->connect_error){
@@ -79,14 +74,6 @@ function get_invoice_by_id($id, &$error) {
  * @return JSON invoice_ids		Returns a json object containing the matching invoice ids.
  */
 function search_invoice_id($term, &$error) {
-	// IMPORTANT
-	// FOR TESTING PURPOSES ONLY.
-	$hostname = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "assignmentdb";
-	//
-	
 	// Creating the connection to the MySQL database
 	$conn = new mysqli($hostname, $username, $password, $database);
 
@@ -198,8 +185,6 @@ function handle_get_request() {
 		header("HTTP/1.1 400 Bad Request");
 		return;
 	}
-	
-	
 }
 
 handle_get_request();

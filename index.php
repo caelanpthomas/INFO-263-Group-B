@@ -32,7 +32,7 @@
 	<div id="address", class="address-bar"></div>
 	<div class="small-spacer"></div>
 
-	<table class="header-table-left">
+	<table class="header-table-left table">
 		<tr>
 			<td class="header-table-left-column">GST Registration No.: <span id="gst_registration" class="header-table-data"></span></td>
 		</tr>
@@ -50,7 +50,7 @@
 		</tr>
 	</table>
 	
-	<table class="header-table-right">
+	<table class="header-table-right table">
 		<tr>
 			<td class="header-table-right-column">Invoice ID.: <span id="invoice_id" class="header-table-data"></span></td>
 		</tr>
@@ -68,7 +68,7 @@
 	 
 	<div class="medium-spacer"></div>
 	 
-	<table class="header-table-left">
+	<table class="header-table-left table">
 		<tr>
 			<td class="header-table-left-column">BILL TO:</span></td>
 		</tr>
@@ -87,7 +87,7 @@
 			
 	</table>
 	
-	<table class="header-table-right">
+	<table class="header-table-right table">
 		<tr>
 			<td class="header-table-right-column">FOR:</td>
 		</tr>

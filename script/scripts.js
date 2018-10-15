@@ -1,11 +1,9 @@
-// Keep your scripts in here
-
 // GLOBALS
 var GST_RATE = 0.15;
 
 /* On page load, we want to send an AJAX request for the target values
- * for the wheel alignment, and then add them to the page if (and when)
- * a valid response comes back.
+ * for the wheel alignment - as they never change, and then add them to 
+ * the page if (and when) a valid response comes back.
  */
 $(document).ready(function() {
     // Set up an AJAX request
@@ -194,7 +192,7 @@ function search_invoice(search_term) {
 			$("#searchDropdown").html(inner_html);
 			$("#searchDropdown").show();
 		}, error: function(xhr, status, error){
-		console.log("An error occurred while fetching the invoice data for invoice ID " + invoice_id + "\n" + error);
+		console.log("An error occurred while fetching the invoice data for invoice ID " + invoice_id + "\n" + xhr);
 		}});
 	}
 }

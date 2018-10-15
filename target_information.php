@@ -1,5 +1,8 @@
 <?php
 
+// Getting database config information
+require_once("/config/config.php");
+
 /**
  * Returns an invoice from the database with the matching ID, if it exists.
  *
@@ -9,16 +12,8 @@
  */
 function get_target_values(&$error) {
 	
-	// IMPORTANT
-	// FOR TESTING PURPOSES ONLY.
-	$hostname = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "assignmentdb";
-	//
-	
 	// Creating the connection to the MySQL database
-	$conn = new mysqli($hostname, $username, $password, $database);
+	$conn = new mysqli($serverName, $username, $password, $dbName, $port);
 
 	// Check if there is an error with the connection.
 	if ($conn->connect_error){
@@ -39,8 +34,7 @@ function get_target_values(&$error) {
 	}
 	
 	$conn->close();
-	/*if the number of rows returned is not one
-	adds on error string*/
+	// If there is not one row returned, then there has been an error. Add to the error string
 	if ($result->num_rows !=1) {
 		$error .= "No matching IDs";
 	}
@@ -61,8 +55,11 @@ function get_target_values(&$error) {
 	
 	// Return array in JSON format
 	return json_encode($return_array);
-}	
-	//checks if GET request is invalid
+}
+
+	
+// Handler for an incoming request (is called by default)
+// Checks if the request is valid, and returns the information
 function handle_get_request() {
 	if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 		header("HTTP/1.1 405 Method Not Allowed");
@@ -75,7 +72,7 @@ function handle_get_request() {
 		echo $error;
 		return;
 	}
-	//successful database read, return the data with normal header 200 OK
+	// Successful database read, return the data with normal header 200 OK
 	echo $json;
 }
 
