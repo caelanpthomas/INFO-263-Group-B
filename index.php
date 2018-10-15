@@ -73,7 +73,7 @@
 			<td class="header-table-left-column">BILL TO:</span></td>
 		</tr>
 		<tr>
-			<td class="header-table-left-column"><span id="customer_name" class="header-table-data-bold"></span></td>
+			<td class="header-table-left-column"><span id="customer_name" class="header-table-data-bold">&nbsp;</span></td>
 		</tr>
 		<tr>
 			<td class="header-table-left-column">Phone: <span id="customer_phone" class="header-table-data"></span></td>

@@ -1,7 +1,7 @@
 <?php
 
 // Getting database config information
-require_once("/config/config.php");
+require_once("config/config.php");
 
 /**
  * Returns an invoice from the database with the matching ID, if it exists.
@@ -11,7 +11,7 @@ require_once("/config/config.php");
  * @return JSON invoice	Returns a json object containing the invoice, or False if no match.
  */
 function get_invoice_by_id($id, &$error) {
-	
+	global $serverName, $username, $password, $dbName, $port;
 	// Creating the connection to the MySQL database
 	$conn = new mysqli($serverName, $username, $password, $dbName, $port);
 
@@ -74,8 +74,9 @@ function get_invoice_by_id($id, &$error) {
  * @return JSON invoice_ids		Returns a json object containing the matching invoice ids.
  */
 function search_invoice_id($term, &$error) {
+	global $serverName, $username, $password, $dbName, $port;
 	// Creating the connection to the MySQL database
-	$conn = new mysqli($hostname, $username, $password, $database);
+	$conn = new mysqli($serverName, $username, $password, $dbName, $port);
 
 	// Check if there is an error with the connection.
 	if ($conn->connect_error){

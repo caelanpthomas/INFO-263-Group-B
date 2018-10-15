@@ -9,7 +9,7 @@
  * Time: 2:54 PM
  */
     $serverName = "localhost";
-    $port = "80";
+    $port = "3306";
     $username = "root";
     $password = "";
     $dbName = "assignmentdb";

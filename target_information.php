@@ -1,7 +1,7 @@
 <?php
 
 // Getting database config information
-require_once("/config/config.php");
+require_once("config/config.php");
 
 /**
  * Returns an invoice from the database with the matching ID, if it exists.
@@ -11,7 +11,7 @@ require_once("/config/config.php");
  * @return JSON invoices	Returns a json object containing the invoice, or False if no match.
  */
 function get_target_values(&$error) {
-	
+	global $serverName, $username, $password, $dbName, $port;
 	// Creating the connection to the MySQL database
 	$conn = new mysqli($serverName, $username, $password, $dbName, $port);
 
