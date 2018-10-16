@@ -8,7 +8,7 @@ require_once("config/config.php");
  *
  * @param string $id 		The id of the invoice to fetch.
  *
- * @return JSON invoice	Returns a json object containing the invoice, or False if no match.
+ * @return JSON invoice		Returns a json object containing the invoice, or False if no match.
  */
 function get_invoice_by_id($id, &$error) {
 	global $serverName, $username, $password, $dbName, $port;
